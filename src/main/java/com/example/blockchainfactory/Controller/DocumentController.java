@@ -111,7 +111,7 @@ public class DocumentController {
     @PreAuthorize("hasAuthority('ROLE_Admin')")
     public ResponseEntity<List<DocumentResponseDTO>> getDocument() {
         List<DocumentResponseDTO> documentResponseDTOList = documentService.getDocumentList();
-        if(documentResponseDTOList.size() > 0){
+        if(documentResponseDTOList.size() > 0 && documentResponseDTOList != null){
             return new ResponseEntity<>(documentResponseDTOList, HttpStatus.OK);
         }
         else{
